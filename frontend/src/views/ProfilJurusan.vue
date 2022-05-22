@@ -74,11 +74,11 @@
 <script>
 // import HelloWorld from '../components/HelloWorld'
 
-// export default {
-//   name: 'HomeView',
+export default {
+  name: 'ProfilJurusan',
 
 //   components: {
 //     HelloWorld,
 //   },
-// }
+};
 </script>

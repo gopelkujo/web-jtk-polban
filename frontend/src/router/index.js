@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfilJurusan from '../views/ProfilJurusan.vue'
 import ProfilProdi from '../views/ProfilProdi.vue'
+import AgendaView from '../views/AgendaView.vue'
+import AgendaViewDetails from '../views/AgendaViewDetails.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,22 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: ProfilProdi
+  },
+  {
+    path: '/agenda',
+    name: 'agendaview',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: AgendaView
+  },
+  {
+    path: '/agenda/agenda-details',
+    name: 'agendaviewdetails',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: AgendaViewDetails
   }
 ]
 
