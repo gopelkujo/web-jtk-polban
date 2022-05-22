@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfilJurusan from '../views/ProfilJurusan.vue'
 import ProfilProdi from '../views/ProfilProdi.vue'
+import DaftarPrestasi from '../views/DaftarPrestasi.vue'
+import StrukturMataKuliah from '../views/StrukturMataKuliah.vue'
+import InfoKerjasama from '../views/InfoKerjasama.vue'
 import ArtikelView from '../views/ArtikelView.vue'
 import DetailArtikel from '../views/DetailArtikel.vue'
 
@@ -53,6 +56,33 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: DetailArtikel
+  }
+  ,
+  {
+    path: '/daftar-prestasi',
+    name: 'daftarprestasi',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: DaftarPrestasi
+  }
+  ,
+  {
+    path: '/struktur-mata-kuliah',
+    name: 'strukturmatakuliah',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: StrukturMataKuliah
+  }
+  ,
+  {
+    path: '/info-kerjasama',
+    name: 'infokerjasama',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: InfoKerjasama
   }
 ]
 
