@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       port: env.int('DATABASE_PORT', 5432),
       database: env('DATABASE_NAME', 'cms-strapi'),
       user: env('DATABASE_USERNAME', 'postgres'),
-      password: env('DATABASE_PASSWORD', 'rafils01'),
+      password: env('DATABASE_PASSWORD', 'disvandal13'),
       ssl: env.bool('DATABASE_SSL', false),
     },
   },
