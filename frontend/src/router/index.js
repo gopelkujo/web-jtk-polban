@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfilJurusan from '../views/ProfilJurusan.vue'
 import ProfilProdi from '../views/ProfilProdi.vue'
+import ArtikelView from '../views/ArtikelView.vue'
+import DetailArtikel from '../views/DetailArtikel.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,22 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: ProfilProdi
+  },
+  {
+    path: '/artikel',
+    name: 'artikel',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: ArtikelView
+  },
+  {
+    path: '/detail-artikel',
+    name: 'detailartikel',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: DetailArtikel
   }
 ]
 
