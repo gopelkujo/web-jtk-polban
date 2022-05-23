@@ -58,6 +58,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: AgendaViewDetails
+  },
+  {
     path: '/artikel',
     name: 'artikel',
     // route level code-splitting
@@ -72,8 +74,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: DetailArtikel
-  }
-  ,
+  },
   {
     path: '/daftar-prestasi',
     name: 'daftarprestasi',
@@ -81,8 +82,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: DaftarPrestasi
-  }
-  ,
+  },
   {
     path: '/struktur-mata-kuliah',
     name: 'strukturmatakuliah',
@@ -90,8 +90,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: StrukturMataKuliah
-  }
-  ,
+  },
   {
     path: '/info-kerjasama',
     name: 'infokerjasama',
