@@ -2,7 +2,7 @@
   <v-footer
     color="#E8F9FD"
     padless
-    class="d-flex flex-row justify-space-between"
+    class="d-flex flex-row justify-space-between align-start mt-10"
   >
     <v-card
       color="#E8F9FD"
@@ -10,7 +10,7 @@
       width="228"
     >
         <v-card-title
-          class="pb-0"
+          class="pb-0 mb-4"
         >
         Address</v-card-title>
         <v-card-text

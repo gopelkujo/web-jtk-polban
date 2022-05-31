@@ -153,7 +153,10 @@ a{color: white;}
     name: 'NavbarComp',
 
     data: () => ({
-      //
+      loading: false,
+      items: [],
+      search: '',
+      select: ''
     }),
   }
 </script>
