@@ -24,94 +24,175 @@
         </v-card>
       </v-img>
     </v-card>
-    <v-container
+    <v-card
       class="d-flex flex-row mx-auto mt-16 elevation-0"
-      max-width="1292"
+      max-width="1292px"
     >
       <v-card
         class="elevation-0"
         width="907px"
       >
-        <v-card-title
-          class="text-center"
-        >
+        <p class="text-h4 text-center">
           ARTIKEL
-        </v-card-title>
+        </p>
         <v-card
           class="d-flex flex-row  elevation-0"
         >
           <v-card
-            class="mr-5 elevation-0"
+            v-for="(artikel, i) in artikels"
+            :key="i"
+            class="mr-5 elevation-0 artikel"
             width="288"
           >
-            <img src="../assets/post-1.png" alt="post 1">
-            <v-card-title
-              class="text-h4 text-center text-wrap"
-            >
-              JTK Juara 1 Lomba Blog
-            </v-card-title>
-          </v-card>
-          <v-card
-            class="mr-5 elevation-0"
-            width="288"
-          >
-            <img src="../assets/post-2.png" alt="post 1">
-            <v-card-title
-              class="text-h4 text-center text-wrap"
-            >
-              Jurnal Ilmiah Oleh Dosen JTK
-            </v-card-title>
-          </v-card>
-          <v-card
-            class="mr-5 elevation-0"
-            width="288"
-          >
-            <img src="../assets/post-3.png" alt="post 1">
-            <v-card-title
-              class="text-h4 text-center text-wrap"
-            >
-              Dunia Metaverse telah Release
-            </v-card-title>
+            <a href="#" class="text-decoration-none black--text">
+              <v-img
+                :lazy-src="getImgUrl(artikel.img)"
+                :src="getImgUrl(artikel.img)"
+                class="grey lighten-2"
+              >
+              </v-img>
+              <v-card-title
+                class="text-h4 text-center text-wrap artikel"
+              >
+                {{ artikel.judul }}
+              </v-card-title>
+            </a>
           </v-card>
         </v-card>
+        <v-card
+          class="d-flex justify-end elevation-0 mt-10 artikel"
+        >
+          <a href="#" class="text-decoration-none text-uppercase">Lebih banyak <v-icon small color="white">mdi-arrow-right</v-icon></a>
+        </v-card>
       </v-card>
-      <!-- <v-card
-        class="elevation-0 py-7 px-6"
+      <v-card
         width="346px"
         height="516px"
         color="#0AA1DD"
+        class="white--text ml-9"
+        style="border-radius: 10px;"
       >
-        <v-card-title
-          class="d-flex flex-row white--text"
+        <v-card
+          class="elevation-0 d-flex flex-row justify-space-between white--text sidebar mx-auto align-center mt-7 mb-5"
+          color="#0AA1DD"
+          width="315px"
+          height="39px"
         >
-          AGENDA
-          <a
-            text
-            plain
-            href="#"
-            class="white--text"
-          >
-            lebih banyak
-          </a>
-        </v-card-title>
-        <div
-          class="pa-0 ma-0 d-flex flex-row"
+          <v-card-title class="font-weight-bold px-0" style="font-size: 2rem">
+            AGENDA
+          </v-card-title>
+          <a href="#" class="text-uppercase font-weight-bold">lebih banyak <v-icon small color="white">mdi-arrow-right</v-icon></a> 
+        </v-card>
+        <v-card
+          v-for="(event, i) in events"
+          :key="i"
+          class="d-flex flex-row mx-auto elevation-0 mt-7"
+          max-width="313px"
+          max-height="76px"
+          color="#0AA1DD"
         >
-          <img src="../assets/tgl-agenda.png" alt="Tanggal">
-          <p 
-            class="pa-0 ma-0 text-h5 font-weight-medium"
+          <v-card
+            width="70px"
+            height="76px"
+            class="d-flex flex-column black--text elevation-0 pa-0"
+            color="#79DAE8"
           >
-            Seminar Dosen
-          </p>
-        </div>
-      </v-card> -->
-    </v-container>
+            <p class="text-h5 pa-0 mt-1 text-center font-weight-bold text-uppercase">{{ event.bulan }}</p>
+            <p class="pa-0 mt-n7 text-center font-weight-bold" style="font-size: 40px;">{{ event.tgl }}</p>
+          </v-card>
+          <v-card
+            class="elevation-0 pa-0 ma-0 ml-2 white--text"
+            color="#0AA1DD"
+            max-width="205px"
+          >
+            <p class="font-weight-bold pa-0 ma-0" style="font-size: 28px">{{ event.judul }}</p>
+            <p class="pa-0 ma-0 text-truncate">{{ event.desk }}</p>
+          </v-card>
+        </v-card>
+      </v-card>
+    </v-card>
   </div>
 </template>
 
-<script>
+<style scoped>
+.artikel {
+  word-break: keep-all;
+  color: black;
+}
+.artikel:hover {
+  color: #2196F3;
+}
 
+.artikel a {
+  color: black;
+}
+
+.artikel a:hover {
+  color: #2196F3;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+.sidebar a:hover {
+  color: #2155CD;
+}
+</style>
+
+<script>
   export default {
     name: 'HomeView',
+    data: () => ({
+      selectedItem: 1,
+      artikels: [
+        { 
+          judul: 'JTK Juara 1 Lomba Blog', 
+          img: 'post-1.png',
+          url: '#'
+        },
+        { 
+          judul: 'Jurnal Ilmiah Oleh Dosen JTK', 
+          img: 'post-2.png',
+          url: '#'
+        },
+        { 
+          judul: 'Dunia Metaverse Telah Release', 
+          img: 'post-3.png',
+          url: '#'
+        },
+      ],
+      events: [
+        {
+          judul: 'Seminar Dosen',
+          desk: 'Seminar daring oleh dosen tamu',
+          bulan: 'mei',
+          tgl: '10'
+        },
+        {
+          judul: 'ETS JTK',
+          desk: 'Evaluasi Tengah Semester JTK POLBAN',
+          bulan: 'mei',
+          tgl: '15'
+        },
+        {
+          judul: 'Wisuda',
+          desk: 'Wisuda luring 2022',
+          bulan: 'mei',
+          tgl: '25'
+        },
+        {
+          judul: 'EAS JTK',
+          desk: 'Evaluasi Akhir Semester JTK POLBAN',
+          bulan: 'mei',
+          tgl: '28'
+        }
+      ]
+    }),
+    methods: {
+      getImgUrl(pic) {
+        return require('../assets/' + pic)
+      }
+    }
   }
 </script>
