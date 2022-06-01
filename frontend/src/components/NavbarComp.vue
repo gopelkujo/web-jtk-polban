@@ -40,11 +40,12 @@
                   v-bind="attrs"
                   v-on="on"
                 >
-                  Tentang JTK
+                  Tentang JTK <v-icon small color="black">mdi-menu-down</v-icon>
                 </v-btn>
               </template>
               <v-list
                 color="primary"
+                class="dropdown"
               >
                 <v-list-item>
                   <v-list-item-title><a href="#">Profil Jurusan</a></v-list-item-title>
@@ -74,11 +75,12 @@
                   v-bind="attrs"
                   v-on="on"
                 >
-                  Kurikulum
+                  Kurikulum <v-icon small color="black">mdi-menu-down</v-icon>
                 </v-btn>
               </template>
               <v-list
                 color="primary"
+                class="dropdown"
               >
                 <v-list-item>
                   <v-list-item-title><a href="#">Profil Lulusan</a></v-list-item-title>
@@ -146,6 +148,15 @@
 
 <style scoped>
 a{color: white;}
+
+.dropdown a {
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  color: rgb(0, 66, 128);
+}
 </style>
 
 <script>

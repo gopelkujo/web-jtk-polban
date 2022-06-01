@@ -111,10 +111,54 @@
         </v-card>
       </v-card>
     </v-card>
+    <v-card
+      class="mt-10 mx-auto elevation-0"
+      max-width="1284px"
+    >
+      <a href="#">
+        <v-img
+          class="white--text align-center"
+          width="1284px"
+          height="402px"
+          src="../assets/fasilitas-background.png"
+        >
+          <v-card-title class="text-uppercase justify-center" style="font-size: 36px">Fasilitas</v-card-title>
+        </v-img>
+      </a>
+  </v-card>
+
+  <v-card class="mt-10 elevation-0 mx-auto" max-width="1284px">
+    <v-card-title class="text-uppercase font-weight-bold pl-0 pb-6" style="font-size: 32px">Gallery</v-card-title>
+
+    <v-carousel hide-delimiters> 
+      <template v-for="(item, index) in carouselImg"> 
+        <v-carousel-item 
+          v-if="(index + 1) % columns === 1 || columns === 1" 
+          :key="index"
+        > 
+          <v-row class="flex-nowrap" style="height:100%"> 
+            <template v-for="(n,i) in columns"> 
+              <template v-if="(+index + i) < carouselImg.length"> 
+                <v-col :key="i"> 
+                  <v-img 
+                  v-if="(+index + i) < carouselImg.length" 
+                  :src="getImgUrl(carouselImg[+index + i].src)"
+                  aspect-ratio="1"
+                  >
+                  </v-img>
+                </v-col> 
+              </template> 
+            </template> 
+          </v-row> 
+        </v-carousel-item> 
+      </template> 
+    </v-carousel>  
+  </v-card>
   </div>
 </template>
 
 <style scoped>
+a {text-decoration: none;}
 .artikel {
   word-break: keep-all;
   color: black;
@@ -187,12 +231,71 @@
           bulan: 'mei',
           tgl: '28'
         }
+      ],
+      model: 0,
+      colors: [
+        'primary',
+        'secondary',
+        'yellow darken-2',
+        'red',
+        'orange',
+      ],
+      carouselImg: [
+        {
+          src: 'gallery-1.png',
+        },
+        {
+          src: 'gallery-2.png',
+        },
+        {
+          src: 'gallery-3.png',
+        },
+        {
+          src: 'gallery-4.png',
+        },
+        {
+          src: 'gallery-4.png',
+        },
+        {
+          src: 'gallery-4.png',
+        },
+      ],
+      slider: [
+        "red", 
+        "green", 
+        "orange", 
+        "blue", 
+        "pink", 
+        "purple", 
+        "indigo", 
+        "cyan", 
+        "deep-purple", 
+        "light-green", 
+        "deep-orange", 
+        "blue-grey"
       ]
     }),
     methods: {
       getImgUrl(pic) {
         return require('../assets/' + pic)
       }
-    }
+    },
+    computed: {
+      columns() {
+        if (this.$vuetify.breakpoint.xl) {
+          return 4;
+        }
+
+        if (this.$vuetify.breakpoint.lg) {
+          return 3;
+        }
+
+        if (this.$vuetify.breakpoint.md) {
+          return 2;
+        }
+
+        return 1;
+      }
+    },
   }
 </script>
